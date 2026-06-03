@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'ShiftGuard — Restaurant Schedule Compliance',
-  description: 'Validates restaurant employee schedules against local labor laws. Prevent overtime violations, track break requirements, and generate compliance reports.'
+  description: 'Ensures restaurant schedules comply with labor laws. Prevent overtime violations, track break requirements, and generate compliance reports.'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

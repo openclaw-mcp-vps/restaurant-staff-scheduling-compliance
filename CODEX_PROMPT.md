@@ -11,26 +11,29 @@ NICHE: local-business-tools
 PRICE: $$17/mo
 
 ARCHITECTURE SPEC:
-A Next.js web app with PostgreSQL database that validates restaurant employee schedules against configurable labor law rules. Features a dashboard for schedule upload/management, real-time compliance checking, and automated report generation with Lemon Squeezy subscription billing.
+A Next.js web app with a React dashboard for schedule management, PostgreSQL database for storing employee data and schedules, and a compliance engine that validates schedules against configurable labor law rules. The system generates automated reports and alerts for violations before they occur.
 
 PLANNED FILES:
 - app/page.tsx
 - app/dashboard/page.tsx
+- app/dashboard/employees/page.tsx
 - app/dashboard/schedules/page.tsx
 - app/dashboard/compliance/page.tsx
 - app/dashboard/reports/page.tsx
 - app/api/schedules/route.ts
-- app/api/compliance/check/route.ts
+- app/api/compliance/validate/route.ts
+- app/api/employees/route.ts
 - app/api/webhooks/lemonsqueezy/route.ts
-- lib/compliance-rules.ts
-- lib/schedule-validator.ts
+- lib/compliance-engine.ts
+- lib/labor-laws.ts
 - lib/database.ts
-- components/schedule-uploader.tsx
-- components/compliance-dashboard.tsx
-- components/violation-alerts.tsx
+- lib/lemonsqueezy.ts
+- components/schedule-calendar.tsx
+- components/compliance-alerts.tsx
+- components/employee-form.tsx
 - prisma/schema.prisma
 
-DEPENDENCIES: next, react, typescript, tailwindcss, prisma, @prisma/client, postgres, @lemonsqueezy/lemonsqueezy.js, date-fns, react-hook-form, zod, lucide-react, recharts, jspdf, csv-parser
+DEPENDENCIES: next, react, typescript, tailwindcss, prisma, @prisma/client, postgresql, @lemonsqueezy/lemonsqueezy.js, date-fns, react-hook-form, zod, lucide-react, @radix-ui/react-dialog, @radix-ui/react-select, recharts
 
 REQUIREMENTS:
 - Next.js 15 with App Router (app/ directory)
@@ -87,7 +90,7 @@ approval: never
 sandbox: danger-full-access
 reasoning effort: xhigh
 reasoning summaries: none
-session id: 019e85df-121f-7a33-bc29-88c2b355040f
+session id: 019e8b8b-6bca-7eb0-b690-fb1f189ba165
 --------
 user
 # Build Task: restaurant-staff-scheduling-compliance
